@@ -32,23 +32,6 @@ A fantasy-themed **Rock Paper Scissors** game built with **Flask, HTML, CSS, and
 
 ---
 
-# 📸 Screenshots
-
-## 🏠 Landing Page
-
-<p align="center">
-<img src="assets/screenshots/landing-page.png" width="900">
-</p>
-
----
-
-## 🎮 Gameplay
-
-<p align="center">
-<img src="assets/screenshots/gameplay.png" width="900">
-</p>
-
----
 
 ## 🛠 Tech Stack
 
@@ -78,11 +61,6 @@ A fantasy-themed **Rock Paper Scissors** game built with **Flask, HTML, CSS, and
 
 ```text
 Rock-Paper-Scissors-Game/
-│
-├── assets/
-│   └── screenshots/
-│       ├── landing-page.png
-│       └── gameplay.png
 │
 ├── static/
 │   ├── css/
