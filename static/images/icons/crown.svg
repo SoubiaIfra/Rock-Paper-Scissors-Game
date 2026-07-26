@@ -1,0 +1,14 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="crownGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe9a8"/>
+      <stop offset="100%" stop-color="#ffd166"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 40 L34 58 L50 30 L66 58 L82 40 L76 72 H24 Z"
+    fill="url(#crownGrad)" stroke="#fdf6ff" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="18" cy="34" r="7" fill="url(#crownGrad)" stroke="#fdf6ff" stroke-width="3"/>
+  <circle cx="50" cy="24" r="8" fill="url(#crownGrad)" stroke="#fdf6ff" stroke-width="3"/>
+  <circle cx="82" cy="34" r="7" fill="url(#crownGrad)" stroke="#fdf6ff" stroke-width="3"/>
+  <rect x="24" y="72" width="52" height="10" rx="4" fill="url(#crownGrad)" stroke="#fdf6ff" stroke-width="3"/>
+</svg>

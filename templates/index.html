@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors — Battle Arena</title>
+
+  <!-- Google Fonts: chunky rounded display + friendly body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Floating glowing particles layer -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Ambient glow blobs behind everything -->
+  <div class="bg-glow bg-glow--orange"></div>
+  <div class="bg-glow bg-glow--purple"></div>
+
+  <main class="arena">
+
+    <header class="topbar">
+      <div class="topbar__badge">
+        <span class="topbar__badge-dot"></span>
+        Arena Online
+      </div>
+      <div class="topbar__crowns">
+        <img class="crown-icon" src="{{ url_for('static', filename='images/icons/crown.svg') }}" alt="" aria-hidden="true">
+        <span>Best of 5</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero__hands" aria-hidden="true">
+        <img class="hero-hand hero-hand--rock" src="{{ url_for('static', filename='images/hands/rock-hand.svg') }}" alt="">
+        <img class="hero-hand hero-hand--paper" src="{{ url_for('static', filename='images/hands/paper-hand.svg') }}" alt="">
+        <img class="hero-hand hero-hand--scissors" src="{{ url_for('static', filename='images/hands/scissors-hand.svg') }}" alt="">
+      </div>
+
+      <h1 class="title">
+        <span class="title__line title__line--rock">ROCK</span>
+        <span class="title__line title__line--paper">PAPER</span>
+        <span class="title__line title__line--scissors">SCISSORS</span>
+      </h1>
+
+      <p class="subtitle">Pick your move. Crush the competition. Claim the crown.</p>
+
+      <button type="button" class="play-btn" id="playBtn">
+        <span class="play-btn__glow"></span>
+        <span class="play-btn__icon" aria-hidden="true">▶</span>
+        <span class="play-btn__label">PLAY</span>
+      </button>
+
+      <div class="stat-cards">
+        <div class="stat-card">
+          <img class="stat-card__icon" src="{{ url_for('static', filename='images/icons/trophy.svg') }}" alt="">
+          <span class="stat-card__value" id="statWins">0</span>
+          <span class="stat-card__label">Wins</span>
+        </div>
+        <div class="stat-card">
+          <img class="stat-card__icon" src="{{ url_for('static', filename='images/icons/fire.svg') }}" alt="">
+          <span class="stat-card__value" id="statStreak">0</span>
+          <span class="stat-card__label">Streak</span>
+        </div>
+        <div class="stat-card">
+          <img class="stat-card__icon" src="{{ url_for('static', filename='images/icons/sparkle.svg') }}" alt="">
+          <span class="stat-card__value" id="statLevel">1</span>
+          <span class="stat-card__label">Level</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Choose your weapon. Outsmart the arena.</p>
+    </footer>
+
+  </main>
+
+  <div id="gameScreen" style="display:none;">
+
+    <div class="game-glow game-glow--orange"></div>
+    <div class="game-glow game-glow--purple"></div>
+    <div class="game-particles" id="gameParticles"></div>
+
+    <div class="game-arena">
+
+      <header class="game-topbar">
+        <div class="game-topbar__badge" id="roundText"></div>
+        <div class="game-topbar__score" id="scoreText"></div>
+      </header>
+
+      <section class="versus-row">
+
+        <div class="fighter fighter--player">
+          <div class="fighter__frame">
+            <img class="fighter__avatar" id="playerAvatar" src="{{ url_for('static', filename='images/avatars/player-avatar.svg') }}" alt="Player avatar">
+          </div>
+          <span class="fighter__label">You</span>
+        </div>
+
+        <div class="versus-badge">
+          <span class="versus-badge__glow"></span>
+          <span class="versus-badge__text">VS</span>
+        </div>
+
+        <div class="fighter fighter--computer">
+          <div class="fighter__frame">
+            <img class="fighter__avatar" id="computerAvatar" src="{{ url_for('static', filename='images/avatars/computer-avatar.svg') }}" alt="Computer avatar">
+          </div>
+          <span class="fighter__label">Computer</span>
+        </div>
+
+      </section>
+
+      <section class="hands-row">
+        <div class="hand-slot hand-slot--player">
+          <img class="hand-slot__image" id="playerHand" src="{{ url_for('static', filename='images/hands/rock-hand.svg') }}" alt="Your move">
+        </div>
+        <div class="hand-slot hand-slot--computer">
+          <img class="hand-slot__image" id="computerHand" src="{{ url_for('static', filename='images/hands/rock-hand.svg') }}" alt="Computer move">
+        </div>
+      </section>
+
+      <p class="result-text" id="resultText"></p>
+
+      <section class="choice-row">
+        <button type="button" class="choice-btn choice-btn--rock" id="rockBtn">
+          <span class="choice-btn__glow"></span>
+          <img class="choice-btn__icon" src="{{ url_for('static', filename='images/hands/rock-hand.svg') }}" alt="">
+          <span class="choice-btn__label">Rock</span>
+        </button>
+
+        <button type="button" class="choice-btn choice-btn--paper" id="paperBtn">
+          <span class="choice-btn__glow"></span>
+          <img class="choice-btn__icon" src="{{ url_for('static', filename='images/hands/paper-hand.svg') }}" alt="">
+          <span class="choice-btn__label">Paper</span>
+        </button>
+
+        <button type="button" class="choice-btn choice-btn--scissors" id="scissorsBtn">
+          <span class="choice-btn__glow"></span>
+          <img class="choice-btn__icon" src="{{ url_for('static', filename='images/hands/scissors-hand.svg') }}" alt="">
+          <span class="choice-btn__label">Scissors</span>
+        </button>
+      </section>
+
+    </div>
+
+    <!-- End-of-match celebration / defeat / draw popup -->
+    <div id="gameOverModal" class="modal" hidden>
+      <div class="modal__backdrop"></div>
+      <div class="confetti-container" id="confettiContainer"></div>
+      <div class="modal__card">
+        <div class="modal__icon">
+          <img class="modal__icon-img modal__icon-img--trophy" src="{{ url_for('static', filename='images/icons/trophy.svg') }}" alt="">
+          <img class="modal__icon-img modal__icon-img--crown" src="{{ url_for('static', filename='images/icons/crown.svg') }}" alt="">
+        </div>
+        <h2 class="modal__title" id="gameOverTitle"></h2>
+        <p class="modal__subtitle">Best of 5 complete</p>
+        <div class="modal__actions">
+          <button type="button" class="modal-btn modal-btn--primary" id="playAgainBtn">Play Again</button>
+          <button type="button" class="modal-btn modal-btn--secondary" id="backHomeBtn">Back to Home</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

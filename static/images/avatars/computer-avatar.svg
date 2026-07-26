@@ -1,0 +1,38 @@
+<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgOrange" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#7a2e2e"/>
+      <stop offset="100%" stop-color="#3a1466"/>
+    </radialGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="80" cy="80" r="78" fill="url(#bgOrange)"/>
+
+  <!-- antenna -->
+  <line x1="80" y1="30" x2="80" y2="16" stroke="#fdf6ff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="80" cy="12" r="7" fill="#ff8a3d" stroke="#fdf6ff" stroke-width="3"/>
+
+  <!-- head -->
+  <rect x="38" y="34" width="84" height="76" rx="26" fill="url(#metalGrad)" stroke="#fdf6ff" stroke-width="4"/>
+
+  <!-- ear bumps -->
+  <circle cx="34" cy="72" r="10" fill="url(#metalGrad)" stroke="#fdf6ff" stroke-width="3"/>
+  <circle cx="126" cy="72" r="10" fill="url(#metalGrad)" stroke="#fdf6ff" stroke-width="3"/>
+
+  <!-- visor -->
+  <rect x="52" y="58" width="56" height="30" rx="15" fill="#2a0d4a"/>
+  <circle cx="70" cy="73" r="6" fill="#8b3dff"/>
+  <circle cx="90" cy="73" r="6" fill="#8b3dff"/>
+  <circle cx="70" cy="73" r="2" fill="#fff"/>
+  <circle cx="90" cy="73" r="2" fill="#fff"/>
+
+  <!-- mouth grill -->
+  <rect x="66" y="96" width="28" height="8" rx="4" fill="#5b2a86"/>
+
+  <!-- gold accent panel -->
+  <rect x="60" y="40" width="40" height="8" rx="4" fill="#ffd166"/>
+</svg>

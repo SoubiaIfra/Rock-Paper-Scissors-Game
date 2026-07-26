@@ -1,0 +1,36 @@
+<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe0b8"/>
+      <stop offset="60%" stop-color="#ffc98a"/>
+      <stop offset="100%" stop-color="#f3a25c"/>
+    </linearGradient>
+    <linearGradient id="cuffGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a06bff"/>
+      <stop offset="100%" stop-color="#6b2fd6"/>
+    </linearGradient>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softShadow)" stroke="#fdf6ff" stroke-width="6" stroke-linejoin="round">
+    <!-- sleeve / cuff -->
+    <rect x="68" y="205" width="84" height="52" rx="18" fill="url(#cuffGrad)"/>
+    <rect x="68" y="205" width="84" height="14" rx="7" fill="#ffd166" stroke="none"/>
+
+    <!-- thumb -->
+    <rect x="24" y="132" width="34" height="66" rx="17" fill="url(#skinGrad)" transform="rotate(-38 41 132)"/>
+
+    <!-- palm -->
+    <rect x="58" y="118" width="104" height="96" rx="34" fill="url(#skinGrad)"/>
+
+    <!-- fingers, fanned slightly -->
+    <rect x="60" y="40" width="24" height="92" rx="12" fill="url(#skinGrad)" transform="rotate(-9 72 86)"/>
+    <rect x="86" y="30" width="24" height="102" rx="12" fill="url(#skinGrad)" transform="rotate(-3 98 81)"/>
+    <rect x="112" y="30" width="24" height="102" rx="12" fill="url(#skinGrad)" transform="rotate(3 124 81)"/>
+    <rect x="138" y="40" width="24" height="92" rx="12" fill="url(#skinGrad)" transform="rotate(9 150 86)"/>
+  </g>
+
+  <ellipse cx="95" cy="150" rx="26" ry="16" fill="#ffffff" opacity="0.25"/>
+</svg>
