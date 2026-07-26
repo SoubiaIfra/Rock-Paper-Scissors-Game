@@ -63,7 +63,8 @@ A fantasy-themed **Rock Paper Scissors** game built with **Flask, HTML, CSS, and
 Rock-Paper-Scissors-Game/
 │
 ├── static/
-│   ├── css/
+│   ├── sounds/
+    |── css/
 │   ├── images/
 │   └── js/
 │
